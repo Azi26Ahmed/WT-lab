@@ -1,0 +1,207 @@
+// studentRegistrationForm.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Form</title>
+</head>
+<body>
+<center>
+<h1>Student Registration Form</h1>
+<form action="#" id="registrationForm" onsubmit="validateForm()">
+<label for="Name">Name: </label>
+<input id="name" name="Name" type="text" required>
+<span class="error"></span>
+<br><br>
+<label for="id">ID No.: </label>
+<input id="id" name="id" type="text" placeholder="1604-xx-xxx-xxx"
+required>
+<span class="error"></span>
+<br><br>
+<label for="pwd">Password: </label>
+<input id="pwd" name="pwd" type="password" required>
+<span class="error"></span>
+<br><br>
+<label for="cpwd">Confirm Password: </label>
+<input id="cpwd" name="cpwd" type="password" required>
+<span class="error"></span>
+<br><br>
+<label for="phone">Phone No.: </label>
+<input id="phone" name="phone" type="text">
+<span class="error"></span>
+<br><br>
+<label for="email">E-mail: </label>
+<input name="email" type="email">
+<span class="error"></span>
+<br><br>
+<label for="Branch">Branch: </label>
+<select name="Branch" id="branch">
+<option value="Nothing">-</option>
+<option value="CSE">CSE</option>
+<option value="IT">IT</option>
+<option value="ECE">ECE</option>
+<option value="CSAI">CSAI</option>
+<option value="EEE">EEE</option>
+</select>
+<br><br>
+<label for="Semester">Semester: </label>
+<select name="Semester" id="semester">
+<option value="Nothing">-</option>
+<option value="1">I</option>
+<option value="2">II</option>
+<option value="3">III</option>
+<option value="4">IV</option>
+<option value="5">V</option>
+<option value="6">VI</option>
+<option value="7">VII</option>
+<option value="8">VIII</option>
+</select>
+<br><br>
+<label for="subject">Subjects: </label>
+<input list="subjects" name="subject" id="subject" required>
+<datalist id="subjects">
+<option value="-">
+<option value="Maths">
+<option value="Physics">
+<option value="Chemistry">
+<option value="DSA">
+<option value="Discrete Mathematics">
+<option value="DBMS">
+<option value="OS">
+</datalist>
+<br><br>
+<label for="">Section: </label>
+<input type="radio" name="section" id="sec-a" value="A" required>
+<label for="sec-a">A</label>
+<input type="radio" name="section" id="sec-b" value="B" required>
+<label for="sec-b">B</label>
+<br><br>
+<label for="">Electives: </label>
+<input type="checkbox" name="elective" id="Java">
+<label for="Java">Java</label>
+<input type="checkbox" name="elective" id="Python">
+<label for="Python">Python</label>
+<input type="checkbox" name="elective" id="CPP">
+<label for="CPP">CPP</label><br><br>
+<label for="address">Address: </label>
+<textarea name="address" id="address"></textarea><br><br>
+<label for="rate">Rating: </label>
+<input name="rate" type="range" min="1" max="10"><br><br>
+<button type="submit">Submit</button>
+<button type="reset">Reset</button>
+</form>
+<span class="error" id="error"></span>
+</center>
+<script src="script.js"></script>
+</body>
+</html>
+// script.js
+// Add dynamic greeting
+window.addEventListener("load", function () {
+const greetingDiv = document.createElement("div");
+greetingDiv.id = "greeting";
+greetingDiv.style.fontSize = "1.2em";
+greetingDiv.style.fontWeight = "bold";
+greetingDiv.style.marginBottom = "20px";
+const currentHour = new Date().getHours();
+let greetingMessage;
+if (currentHour >= 5 && currentHour < 12) {
+greetingMessage = "Good Morning!";
+} else if (currentHour >= 12 && currentHour < 17) {
+greetingMessage = "Good Afternoon!";
+} else if (currentHour >= 17 && currentHour < 21) {
+greetingMessage = "Good Evening!";
+} else {
+greetingMessage = "Good Night!";
+}
+greetingDiv.innerText = greetingMessage;
+document.getElementById("registrationForm").insertAdjacentElement("beforeb
+egin", greetingDiv);
+});
+// Tooltip functionality
+document.getElementById("id").addEventListener("mouseover", function () {
+const tooltip = document.createElement("span");
+tooltip.id = "id-tooltip";
+tooltip.style.color = "gray";
+tooltip.innerText = " Format: 1604-xx-xxx-xxx";
+this.insertAdjacentElement("afterend", tooltip);
+});
+document.getElementById("id").addEventListener("mouseout", function () {
+const tooltip = document.getElementById("id-tooltip");
+if (tooltip) tooltip.remove();
+});
+// Validation patterns
+const patterns = {
+name: /^[a-zA-Z\s]+$/,
+id: /^1604-\d{2}-\d{3}-\d{3}$/,
+password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()+<>,./?;:'"{}-
+]).{8,}$/,
+phone: /^\d{10}$/,
+email: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/
+};
+// Real-time validation function
+function validateField(field, pattern, errorMessage) {
+const value = field.value.trim();
+const errorSpan = field.nextElementSibling; // Error message span
+if (!value) {
+errorSpan.textContent = "This field is required.";
+field.style.borderColor = "red";
+} else if (!pattern.test(value)) {
+errorSpan.textContent = errorMessage;
+field.style.borderColor = "red";
+} else {
+errorSpan.textContent = ""; // Clear error message
+field.style.borderColor = "green";
+}
+}
+// Adding real-time validation event listeners
+document.getElementById("name").addEventListener("input", function () {
+validateField(this, patterns.name, "Only alphabets and spaces are 
+allowed.");
+});
+document.getElementById("id").addEventListener("input", function () {
+validateField(this, patterns.id, "Format should be: 1604-xx-xxx-xxx.");
+});
+document.getElementById("pwd").addEventListener("input", function () {
+validateField(this, patterns.password, "Must be 8+ chars, contain 
+uppercase, lowercase, number, and special char.");
+});
+document.getElementById("cpwd").addEventListener("input", function () {
+const pwd = document.getElementById("pwd").value.trim();
+const cpwd = this.value.trim();
+const errorSpan = this.nextElementSibling;
+if (!cpwd) {
+errorSpan.textContent = "Please confirm your password.";
+this.style.borderColor = "red";
+} else if (pwd !== cpwd) {
+errorSpan.textContent = "Passwords do not match.";
+this.style.borderColor = "red";
+} else {
+errorSpan.textContent = "";
+this.style.borderColor = "green";
+}
+});
+document.getElementById("phone").addEventListener("input", function () {
+validateField(this, patterns.phone, "Phone number must be exactly 10 
+digits.");
+});
+document.querySelector("input[name='email']").addEventListener("input", 
+function () {
+validateField(this, patterns.email, "Enter a valid email address.");
+});
+// Form submission validation
+document.getElementById("registrationForm").addEventListener("submit", 
+function (event) {
+const inputs = document.querySelectorAll("input");
+let isValid = true;
+inputs.forEach(input => {
+if (input.style.borderColor === "red") {
+isValid = false;
+}
+});
+if (!isValid) {
+event.preventDefault();
+alert("Please fix the errors before submitting.");
+}
+});
