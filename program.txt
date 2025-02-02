@@ -1,0 +1,22 @@
+1: Develop a static website using HTML Tables
+2: Develop a static website using DIV and CSS 
+3: Develop a registration page using HTML forms 
+4: Develop a dynamic web page using JavaScript
+5: Write a JavaScript program to validate the registration 
+form 
+6: Create a dynamic web page using JavaScript event handling 
+and DOM manipulation. 
+7: Demonstrate working of built-in node.js modules and file 
+system. 
+8: Demonstrate routes and parameter handling in Express.js 
+9: Write a program to implement MVC architecture
+10: Demonstrate rendering HTML and JSX using React.js
+11: Demonstrate use of props, events, lists, forms using 
+React.js 
+12: Create a Single Page Application (SPA) using REST 
+service. 
+13: Write a Node.js program to create DB and Collections in 
+MongoDB
+14: Write a react.js program to retrieve data from MongoDB
+15: Write a react.js program to insert, update and delete data 
+in MongoDB
