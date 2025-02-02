@@ -1,0 +1,34 @@
+Develop a dynamic web page using JavaScript.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Web Page</title>
+</head>
+<body>
+<h2 id="greeting"></h2>
+<p>Random Positive Number: <span id="randomNumber"></span></p>
+<p>Last Modified: <span id="lastModified"></span></p>
+<script>
+function getGreeting() {
+const hour = new Date().getHours();
+if (hour < 12) {
+return "Good Morning!";
+} else if (hour < 18) {
+return "Good Afternoon!";
+} else {
+return "Good Evening!";
+}
+}
+function getRandomPositiveNumber() {
+return Math.floor(Math.random() * 1000) + 1;
+}
+document.getElementById("greeting").innerText = getGreeting();
+document.getElementById("randomNumber").innerText = 
+getRandomPositiveNumber();
+document.getElementById("lastModified").innerText = 
+document.lastModified;
+</script>
+</body>
+</html>
