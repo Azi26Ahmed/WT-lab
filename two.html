@@ -1,0 +1,192 @@
+Develop a static website using DIV and CSS.
+// index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MJCET</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="header">
+<img src="MJ Logo.png" alt="MJ Logo" width="400" height="90">
+<h1 id="title">Muffakham Jah College of Engineering and 
+Technology</h1>
+</div>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#mv">Vision Mission</a></li>
+<li><a href="#courses">Courses</a></li>
+</ul>
+<table>
+<tr id="home">
+<td>
+<div>
+<h1>Home</h1>
+<p>Welcome to Muffakham Jah College of Engineering and 
+Technology Established in the year 1980 under Sultan-Ul-Uloom Education 
+Society (SUES), Muffakham Jah College of Engineering and Technology is a 
+Minority Educational Institution affiliated to Osmania University, Hyderabad 
+and approved by AICTE, New Delhi and accredited by the NAAC with Grade A+ and 
+the Institution of Engineers, India. Located at Banjara Hills and spread over 
+a sprawling 25 acre of land, the college with its serene and picturesque 
+natural landscape is an ideal destination in all aspects to create innovative 
+engineers to face the cut-throat competitions in the global technological 
+scenario. With a glorious past and its current initiatives in terms of state 
+of the art infrastructural facility, motivated faculty,scope of internship, 
+research, association with industry and an enviable number of placements, the 
+college has materialized the dreams of innumerable young minds to contribute 
+in the field of science and technology and emerge victorious.</p>
+</div>
+</td>
+<td>
+<div>
+<img src="home-img.png" alt="College Image" width="700"
+height="500">
+</div>
+</td>
+</tr>
+<tr id="about">
+<td>
+<div>
+<img src="about.png" alt="College Image" width="700"
+height="500">
+</div>
+</td>
+<td>
+<div>
+<h1>About Us</h1>
+<p>Established in 1980, Muffakham Jah College of 
+Engineering and Technology is a premier institute of its kind, offering four 
+year B.E. degree courses in 7 Engineering branches, namely, Civil Engineering, 
+Computer Science Engineering, Computer Science Engineering (Artificial 
+Intelligence), Computer Science Engineering (Artificial Intelligence & Machine 
+Learning), Computer Science Engineering (Data Science), Electronics and 
+Communication Engineering, Mechanical Engineering and four post graduate 
+courses in M.E. (CAD/CAM), M.E. (Structural Engineering), M.E. (Embedded 
+Systems & VLSI Design), M. Tech. (Computer Science) of two years duration. The 
+College is a Minority Educational Institution affiliated to Osmania University 
+and is approved by the AICTE and accredited by the NAAC with Grade A+.</p>
+</div>
+</td>
+</tr>
+<tr id="mv">
+<td>
+<div>
+<h1>Vision</h1>
+<p>To be a part of the universal human quest for 
+development and progress by contributing high calibre, ethical and socially 
+responsible engineers who meet the global challenge of building a modern 
+society in harmony with nature.</p>
+<h1>Mission</h1>
+<p>To attain excellence in imparting technical education 
+from the undergraduate to through doctoral levels by adopting coherent and 
+judiciously coordinated curricular and co-curricular programs.</p>
+<p>To foster a partnership with industry and Governmental 
+agencies through collaborative research and consultancy.</p>
+<p>To nurture and strengthen auxiliary soft skills for 
+overall development and improved employability in a multicultural 
+workspace.</p>
+<p>To develop scientific temper and spirit of enquiry in 
+order to harness the innovative talents.</p>
+<p>To develop a constructive attitude in the students 
+towards the task of nation-building and empower them to become future 
+leaders.</p>
+</div>
+</td>
+<td>
+<div>
+<img src="mv.png" alt="College Image" width="700"
+height="500">
+</div>
+</td>
+</tr>
+<tr id="courses">
+<td>
+<div>
+<img src="UG.png" alt="College Image" width="700"
+height="500">
+</div>
+</td>
+<td>
+<div>
+<h1>Courses</h1>
+<table id="t3">
+<th class="a">Course</th>
+<th class="a">Duration</th>
+<tr class="a">
+<td class="a">B.E</td>
+<td class="a">4 years</td>
+</tr>
+<tr class="a">
+<td class="a">M.Tech</td>
+<td class="a">2 years</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
+// style.css
+body{
+background-color: #b9e9ff;
+}
+#t1{
+width: 100%;
+}
+#title{
+font-family: sans-serif;
+font-size: 50px;
+font-weight: bold;
+color: #014b6c;
+}
+img{
+display: block;
+margin-left: auto;
+margin-right: auto;
+border-radius: 10px;
+}
+ul{
+border-radius: 5px;
+background-color: rgba(0, 0, 0, 0.553);
+justify-content: center;
+list-style-type: none;
+padding-top: 20px;
+padding-bottom: 20px;
+display: flex;
+}
+li{
+border-radius: 2px;
+font-weight: bold;
+font-family: sans-serif;
+background-color: aliceblue;
+padding: 5px;
+margin-right: 20px;
+}
+p{
+margin: 0px 0px 15px;
+padding: 20px;
+text-align: justify;
+font-family: sans-serif;
+}
+h1{
+font-family: sans-serif;
+text-align: center;
+color: #014b6c;
+}
+#t3,.a{
+font-family: sans-serif;
+border: 2px solid black;
+border-radius: 2px;
+/* border-collapse: collapse; */
+table-layout: auto;
+width: 100%;
+font-size: larger;
+}
+.a{
+padding: 5px;
+}
