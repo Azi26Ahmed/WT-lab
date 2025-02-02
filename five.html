@@ -1,0 +1,149 @@
+Write a JavaScript program to validate the registration form.
+// studentRegistrationForm.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration Form</title>
+</head>
+<body>
+<center>
+<h1>Student Registration Form</h1>
+<form action="#" id="registrationForm" onsubmit="validateForm(event)">
+<label for="Name">Name: </label>
+<input id="name" name="Name" type="text"><br><br>
+<label for="id">ID No.: </label>
+<input id="id" name="id" type="text" placeholder="1604-xx-xxxxxx"><br><br>
+<label for="pwd">Password: </label>
+<input id="pwd" name="pwd" type="password"><br><br>
+<label for="cpwd">Confirm Password: </label>
+<input id="cpwd" name="cpwd" type="password"><br><br>
+<label for="Branch">Branch: </label>
+<select name="Branch" id="branch">
+<option value="Nothing">-</option>
+<option value="CSE">CSE</option>
+<option value="IT">IT</option>
+<option value="ECE">ECE</option>
+<option value="CSAI">CSAI</option>
+<option value="EEE">EEE</option>
+</select>
+<br><br>
+<label for="Semester">Semester: </label>
+<select name="Semester" id="semester">
+<option value="Nothing">-</option>
+<option value="1">I</option>
+<option value="2">II</option>
+<option value="3">III</option>
+<option value="4">IV</option>
+<option value="5">V</option>
+<option value="6">VI</option>
+<option value="7">VII</option>
+<option value="8">VIII</option>
+</select>
+<br><br>
+<label for="subject">Subjects: </label>
+<input list="subjects" name="subject" id="subject" required>
+<datalist id="subjects">
+<option value="-">
+<option value="Maths">
+<option value="Physics">
+<option value="Chemistry">
+<option value="DSA">
+<option value="Discrete Mathematics">
+<option value="DBMS">
+<option value="OS">
+</datalist>
+<br><br>
+<label for="">Section: </label>
+<input type="radio" name="section" id="sec-a" value="A" required>
+<label for="sec-a">A</label>
+<input type="radio" name="section" id="sec-b" value="B" required>
+<label for="sec-b">B</label>
+<br><br>
+<label for="">Electives: </label>
+<input type="checkbox" name="elective" id="Java">
+<label for="Java">Java</label>
+<input type="checkbox" name="elective" id="Python">
+<label for="Python">Python</label>
+<input type="checkbox" name="elective" id="CPP">
+<label for="CPP">CPP</label><br><br>
+<label for="phone">Phone No.: </label>
+<input id="phone" name="phone" type="text"><br><br>
+<label for="email">E-mail: </label>
+<input name="email" type="email"><br><br>
+<label for="address">Address: </label>
+<textarea name="address" id="address"></textarea><br><br>
+<label for="rate">Rating: </label>
+<input name="rate" type="range" min="1" max="10"><br><br>
+<button type="submit">Submit</button>
+<button type="reset">Reset</button>
+</form>
+<span class="error" id="error"></span>
+</center>
+<script src="script.js"></script>
+</body>
+</html>
+// script.js
+document.getElementById("registrationForm").addEventListener("submit", 
+validateForm);
+function validateForm(event) {
+event.preventDefault(); 
+const name=document.getElementById('name').value;
+const id=document.getElementById('id').value;
+const pwd=document.getElementById('pwd').value;
+const cpwd=document.getElementById('cpwd').value;
+const phone=document.getElementById('phone').value;
+const mail = document.querySelector("input[name='email']").value.trim();
+const phonePattern=/^\d{10}$/;
+const namePattern=/^[a-zA-Z\s]+/;
+const idPattern=/^1604-\d{2}-733-\d{3}$/;
+const strPasswordPattern=/^(?=.*[a-z])(?=.*[AZ])(?=.*\d)(?=.*[!@#$%^&*()+<>,./?;:'"{}-]).{8,}$/;
+const emailpattern=/[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
+if(name===""){
+alert("Please Enter Your Name");
+return false;
+}
+if(!namePattern.test(name)){
+alert("Please enter a valid name");
+return false;
+}
+if(phone===""){
+alert("Please Enter Your Phone Number");
+return false;
+}
+if(!phonePattern.test(phone)){
+alert("Please enter valid 10 digits");
+return false;
+}
+if(id===""){
+alert("ID is required");
+return false;
+}
+if(!idPattern.test(id)){
+alert("Please enter valid ID");
+return false;
+}
+if(pwd===""){
+alert("Choose your password");
+return false;
+}
+if(!strPasswordPattern.test(pwd)){
+alert("Please Choose a Strong Password\nA strong Password is of 
+minimum length 8 and consists of at least 1 alphabet of upper and lower cases, 
+a number, a special character");
+return false;
+} 
+if(cpwd==="" || cpwd!=pwd){
+alert("Re-enter the same password");
+return false;
+}
+if(mail===""){
+alert("E-Mail is required");
+return false;
+}
+if(!emailpattern.test(mail)){
+alert("Please enter valid Email");
+return false;
+}
+}
